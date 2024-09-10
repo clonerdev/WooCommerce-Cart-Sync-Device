@@ -34,6 +34,10 @@ Webhooks are triggered when the cart is updated, allowing real-time synchronizat
 
 ## Changelog
 
+### 1.0.4
+
+- Fix Bug
+
 ### 1.0.0
 
 - Initial release with full functionality for synchronizing WooCommerce carts across devices for logged-in users.
