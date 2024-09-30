@@ -1,0 +1,114 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Cart Sync Device for WooCommerce\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-30 13:59+0000\n"
+"PO-Revision-Date: 2024-09-30 18:17+0330\n"
+"Last-Translator: \n"
+"Language-Team: فارسی\n"
+"Language: fa_IR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Loco-Version: 2.6.11; wp-6.6.2\n"
+"X-Domain: cart-sync-device-for-woocommerce\n"
+
+#. Page title
+#: includes/wcsd-admin-settings.php:14
+msgid "Cart Sync Device"
+msgstr "همگام سازی سبد خرید در سایر دستگاه‌ها"
+
+#. Name of the plugin
+msgid "Cart Sync Device for WooCommerce"
+msgstr "همگام سازی سبد خرید ووکامرس در سایر دستگاه‌ها"
+
+#: includes/wcsd-admin-settings.php:51
+msgid ""
+"Configure webhook settings to receive real-time notifications of cart updates."
+msgstr ""
+"تنظیمات webhook را برای دریافت اعلان‌های بلادرنگ از به‌روزرسانی‌های سبد خرید "
+"پیکربندی کنید."
+
+#: includes/wcsd-admin-settings.php:54
+msgid "Enable Webhook"
+msgstr "فعال سازی Webhook"
+
+#: includes/wcsd-admin-settings.php:57
+msgid "Enable Webhook functionality"
+msgstr "قابلیت Webhook را فعال کنید"
+
+#: includes/wcsd-admin-settings.php:78
+msgid "Enter authentication token for Webhook."
+msgstr "رمز یا توکن (token) احراز هویت را برای Webhook وارد کنید."
+
+#: includes/wcsd-admin-settings.php:71
+msgid "Enter the Webhook Secret key."
+msgstr "کلید مخفی (Secret key) Webhook را وارد کنید."
+
+#: includes/wcsd-admin-settings.php:64
+msgid "Enter the Webhook URL."
+msgstr "آدرس (URL) Webhook  را وارد کنید."
+
+#: includes/wcsd-admin-settings.php:94
+msgid "GitHub"
+msgstr "گیت‌هاب"
+
+#: includes/wcsd-admin-settings.php:37
+msgid "Info"
+msgstr "درباره افزونه"
+
+#: includes/wcsd-admin-settings.php:93
+msgid "NedayeWEB"
+msgstr "ندای وب"
+
+#: includes/wcsd-admin-settings.php:39 includes/wcsd-admin-settings.php:91
+msgid "Support"
+msgstr "پشتیبانی"
+
+#. Description of the plugin
+msgid "Synchronize the WooCommerce cart across devices."
+msgstr "سبد ووکامرس را در بین دستگاه‌های مختلف همگام کنید."
+
+#: includes/wcsd-admin-settings.php:83
+msgid "Test Webhook"
+msgstr "تست وب هوک (Webhook)"
+
+#: includes/wcsd-admin-settings.php:45
+msgid ""
+"This plugin allows users to sync their shopping carts across devices for logged-"
+"in users."
+msgstr ""
+"این افزونه به کاربرانی که وارد حساب کاربری خود شده‌اند این امکان را می‌دهد که سبد "
+"خرید خود را در لحظه بین دستگاه‌های مختلف همگام کرده و بتوانند در دستگاه‌های مختلف "
+"ادامه فرایند خرید را انجام دهند."
+
+#: includes/wcsd-admin-settings.php:75
+msgid "Webhook Authentication"
+msgstr "احراز هویت Webhook"
+
+#: includes/wcsd-admin-settings.php:68
+msgid "Webhook Secret"
+msgstr "کلید مخفی وب هوک (Webhook Secret)"
+
+#: includes/wcsd-admin-settings.php:50
+msgid "Webhook Settings"
+msgstr "تنظیمات Webhook"
+
+#: includes/wcsd-admin-settings.php:61
+msgid "Webhook URL"
+msgstr "آدرس (URL) Webhook"
+
+#: includes/wcsd-admin-settings.php:38
+msgid "Webhooks"
+msgstr "وب هوک (Webhook)"
+
+#. Parent slug
+#: includes/wcsd-admin-settings.php:13 includes/wcsd-admin-settings.php:44
+msgid "WooCommerce Cart Sync Device"
+msgstr "همگام سازی سبد خرید کاربران ووکامرس (مشتریان) در سایر دستگاه‌ها"
+
+#: includes/wcsd-admin-settings.php:28
+msgid "WooCommerce Cart Sync Device Settings"
+msgstr "تنظیمات همگام سازی سبد خرید کاربران ووکامرس (مشتریان) در سایر دستگاه‌ها"

@@ -1,0 +1,115 @@
+/* Style for Cart Sync Device for WooCommerce */
+#cart-sync-settings h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Form Table Styles */
+#cart-sync-settings .form-table th {
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+#cart-sync-settings .form-table td {
+    padding: 10px 0;
+}
+
+#cart-sync-settings .form-table input[type="text"],
+#cart-sync-settings .form-table select {
+    width: 300px; /* Default width */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#cart-sync-settings .form-table .description {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Submit Button Styles */
+#cart-sync-settings .submit button {
+    background-color: #0073aa;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#cart-sync-settings .submit button:hover {
+    background-color: #005177; /* Darker shade on hover */
+}
+
+/* Tab Navigation Styles */
+.nav-tab-wrapper {
+    margin-bottom: 20px;
+}
+
+.nav-tab {
+    background-color: #f1f1f1;
+    color: #0073aa;
+    padding: 10px 20px;
+    border-radius: 4px 4px 0 0;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.nav-tab-active {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    border-bottom: none; /* Hide bottom border for active tab */
+    border-radius: 4px 4px 0 0;
+}
+
+.tab-content {
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    display: none; /* Hidden by default */
+}
+
+.tab-content.active {
+    display: block; /* Show active tab */
+}
+
+/* Webhook Settings Styling */
+.webhook-settings {
+    display: none; /* Hidden by default */
+}
+
+/* Support Button Styles */
+#cart-sync-settings .support-button {
+    text-align: center;
+}
+
+#cart-sync-settings .support-button a.button {
+    background-color: #0073aa;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 10px 5px; /* Margin around buttons */
+}
+
+#cart-sync-settings .support-button a.button:hover {
+    background-color: #005177; /* Darker shade on hover */
+}
+
+/* Centered Links */
+.centered {
+    text-align: center;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    #cart-sync-settings .form-table input[type="text"],
+    #cart-sync-settings .form-table select {
+        width: 100%; /* Full width on smaller screens */
+    }
+}

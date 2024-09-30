@@ -3,7 +3,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// ایجاد جدول دیتابیس برای ذخیره داده‌های سبد خرید
+// Create database table for storing cart data
 function wcsd_create_plugin_custom_table() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'wcsd_cart_data';
@@ -20,5 +20,9 @@ function wcsd_create_plugin_custom_table() {
 
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
         dbDelta($sql);
+        
+        error_log("Custom table $table_name created successfully."); // Logging table creation
+    } else {
+        error_log("Custom table $table_name already exists."); // Logging if table exists
     }
 }

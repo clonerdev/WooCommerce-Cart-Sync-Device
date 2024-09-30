@@ -34,6 +34,17 @@ Webhooks are triggered when the cart is updated, allowing real-time synchronizat
 
 ## Changelog
 
+### 2.5.0
+
+- Synchronization with Litespeed cache
+- Fix Bug
+
+### 2.0.0
+
+- Add plugin setting
+- Adding Persian language to the plugin
+- Fix Bug
+
 ### 1.0.4
 
 - Fix Bug

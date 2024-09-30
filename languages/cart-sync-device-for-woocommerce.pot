@@ -1,0 +1,115 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Cart Sync Device for WooCommerce\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-30 14:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.11; wp-6.6.2\n"
+"X-Domain: cart-sync-device-for-woocommerce"
+
+#. Page title
+#: includes/wcsd-admin-settings.php:14
+msgid "Cart Sync Device"
+msgstr ""
+
+#. Name of the plugin
+msgid "Cart Sync Device for WooCommerce"
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:51
+msgid ""
+"Configure webhook settings to receive real-time notifications of cart "
+"updates."
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:54
+msgid "Enable Webhook"
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:57
+msgid "Enable Webhook functionality"
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:78
+msgid "Enter authentication token for Webhook."
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:71
+msgid "Enter the Webhook Secret key."
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:64
+msgid "Enter the Webhook URL."
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:94
+msgid "GitHub"
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:37
+msgid "Info"
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:93
+msgid "NedayeWEB"
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:39 includes/wcsd-admin-settings.php:91
+msgid "Support"
+msgstr ""
+
+#. Description of the plugin
+msgid "Synchronize the WooCommerce cart across devices."
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:83
+msgid "Test Webhook"
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:45
+msgid ""
+"This plugin allows users to sync their shopping carts across devices for "
+"logged-in users."
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:75
+msgid "Webhook Authentication"
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:68
+msgid "Webhook Secret"
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:50
+msgid "Webhook Settings"
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:61
+msgid "Webhook URL"
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:38
+msgid "Webhooks"
+msgstr ""
+
+#. Parent slug
+#: includes/wcsd-admin-settings.php:13 includes/wcsd-admin-settings.php:44
+msgid "WooCommerce Cart Sync Device"
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:28
+msgid "WooCommerce Cart Sync Device Settings"
+msgstr ""
+
+#. Author of the plugin
+msgid "Your Name"
+msgstr ""
