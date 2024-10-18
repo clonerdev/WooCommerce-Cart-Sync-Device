@@ -3,7 +3,7 @@ Contributors: persianweb
 Tags: woocommerce, woocommerce cart, order sync, woocommerce order
 Requires at least: 4.7
 Tested up to: 6.6.2
-Stable tag: 2.5.0
+Stable tag: 3.0.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -36,6 +36,11 @@ No, the plugin is designed to sync carts only for logged-in users.
 Webhooks are triggered when the cart is updated, allowing real-time synchronization with other devices.
 
 == Changelog ==
+
+= 3.0.0 =
+* Synchronization with Litespeed cache
+* Development
+* Fix Bug
 
 = 2.5.0 =
 * Synchronization with Litespeed cache
