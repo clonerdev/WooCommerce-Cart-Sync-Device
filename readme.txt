@@ -1,68 +1,81 @@
-# WooCommerce Cart Sync Device
-
-| 🇺🇸 [English](README.md) | 🇮🇷 [Persian](README-FA.md) |
-|--------------------------|----------------------------|
-<br>
+=== Cart Sync Device for WooCommerce ===
+Contributors: persianweb
+Tags: woocommerce, woocommerce cart, order sync, woocommerce order
+Requires at least: 4.7
+Tested up to: 6.6.2
+Stable tag: 2.5.0
+Requires PHP: 7.4
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 WooCommerce Cart Sync Device enables seamless synchronization of WooCommerce shopping carts across multiple devices for logged-in users. The plugin ensures that users can access and continue their shopping experience on different devices without losing their cart contents.
 
-## Description
+== Description ==
 
 WooCommerce Cart Sync Device synchronizes the WooCommerce shopping cart data for users across different devices. Whether your customers start shopping on a mobile device and finish on a desktop, their cart items remain intact. This plugin is especially useful for users who frequently switch between devices, ensuring a consistent shopping experience.
 
-### Features
+Features include:
+* Device-to-device cart synchronization: Automatically sync cart data between multiple devices for logged-in users.
+* Real-time updates: Cart updates are instantly synchronized across devices using webhooks.
+* Custom database table: Stores cart data for quick retrieval and synchronization.
+* Admin settings: Configure synchronization options, including webhook URL for real-time syncing.
+* User-friendly: Seamlessly integrates with WooCommerce without disrupting the user experience.
 
-- Device-to-device cart synchronization: Automatically sync cart data between multiple devices for logged-in users.
-- Real-time updates: Cart updates are instantly synchronized across devices using webhooks.
-- Custom database table: Stores cart data for quick retrieval and synchronization.
-- Admin settings: Configure synchronization options, including webhook URL for real-time syncing.
-- User-friendly: Seamlessly integrates with WooCommerce without disrupting the user experience.
+== Frequently Asked Questions ==
 
-## Frequently Asked Questions
-
-### How does the plugin handle cart synchronization?
+= How does the plugin handle cart synchronization? =
 
 The plugin saves the cart data in a custom database table whenever a user updates their cart. This data is then retrieved and synchronized across devices when the user logs in on a different device.
 
-### Does the plugin work with guest users?
+= Does the plugin work with guest users? =
 
 No, the plugin is designed to sync carts only for logged-in users.
 
-### How are webhooks used in the plugin?
+= How are webhooks used in the plugin? =
 
 Webhooks are triggered when the cart is updated, allowing real-time synchronization with other devices.
 
-## Changelog
+== Changelog ==
 
-### 3.0.0
+= 2.5.0 =
+* Synchronization with Litespeed cache
+* Fix Bug
 
-- Synchronization with Litespeed cache
-- Development
-- Fix Bug
+= 2.0.0 =
+* Add plugin setting
+* Adding Persian language to the plugin
+* Fix Bug
 
-### 2.5.0
+= 1.0.4 =
+* Fix Bug
 
-- Synchronization with Litespeed cache
-- Fix Bug
+= 1.0.0 =
+* Initial release with full functionality for synchronizing WooCommerce carts across devices for logged-in users.
+* Custom database table for storing and retrieving cart data.
+* Admin settings for configuring the plugin.
+* Real-time cart synchronization using webhooks.
 
-### 2.0.0
+== Upgrade Notice ==
 
-- Add plugin setting
-- Adding Persian language to the plugin
-- Fix Bug
+= 2.5.0 =
+* Synchronization with Litespeed cache
+* Fix Bug
 
-### 1.0.4
+= 2.0.0 =
+* Add plugin setting
+* Adding Persian language to the plugin
+* Fix Bug
 
-- Fix Bug
+= 1.0.4 =
+* Fix plugin problems
 
-### 1.0.0
+= 1.0.0 =
+* Initial release with full functionality for synchronizing WooCommerce carts across devices for logged-in users.
+* Custom database table for storing and retrieving cart data.
+* Admin settings for configuring the plugin.
+* Real-time cart synchronization using webhooks.
 
-- Initial release with full functionality for synchronizing WooCommerce carts across devices for logged-in users.
-- Custom database table for storing and retrieving cart data.
-- Admin settings for configuring the plugin.
-- Real-time cart synchronization using webhooks.
-
-## Additional Information
+== Additional Information ==
 
 ### About the Author
 

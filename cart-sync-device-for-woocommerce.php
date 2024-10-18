@@ -3,7 +3,7 @@
  * Plugin Name: Cart Sync Device for WooCommerce
  * Plugin URI: https://github.com/clonerdev/WooCommerce-Cart-Sync-Device
  * Description: Synchronize the WooCommerce cart across devices.
- * Version: 2.5.0
+ * Version: 3.0.0
  * Author: Ali Karimi | Nedaye Web
  * Author URI: https://nedayeweb.ir
  * WC requires at least: 6.4
@@ -12,7 +12,6 @@
  * License: GPL-2.0+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
-
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -24,6 +23,28 @@ function wcsd_load_textdomain() {
     load_plugin_textdomain('cart-sync-device-for-woocommerce', false, dirname(plugin_basename(__FILE__)) . '/languages/');
 }
 add_action('plugins_loaded', 'wcsd_load_textdomain');
+
+// Enqueue scripts and styles for front-end
+function wcsd_enqueue_scripts() {
+    wp_register_script('wcsd-custom-js', plugin_dir_url(__FILE__) . 'assets/js/script.js', array('jquery'), '1.0.0', true); // اصلاح مسیر
+    wp_enqueue_script('wcsd-custom-js');
+
+    wp_register_style('wcsd-custom-css', plugin_dir_url(__FILE__) . 'assets/css/style.css', array(), '1.0.0'); // اصلاح مسیر
+    wp_enqueue_style('wcsd-custom-css');
+}
+add_action('wp_enqueue_scripts', 'wcsd_enqueue_scripts');
+
+// Enqueue admin scripts and styles
+function wcsd_enqueue_admin_scripts($hook_suffix) {
+    if (strpos($hook_suffix, 'wcsd') !== false) {
+        wp_register_script('wcsd-admin-js', plugin_dir_url(__FILE__) . 'assets/js/wcsd-admin.js', array('jquery'), '1.0.0', true); // اصلاح مسیر
+        wp_enqueue_script('wcsd-admin-js');
+
+        wp_register_style('wcsd-admin-css', plugin_dir_url(__FILE__) . 'assets/css/style.css', array(), '1.0.0'); // اصلاح مسیر
+        wp_enqueue_style('wcsd-admin-css');
+    }
+}
+add_action('admin_enqueue_scripts', 'wcsd_enqueue_admin_scripts');
 
 // Include necessary files
 require_once plugin_dir_path(__FILE__) . 'includes/wcsd-database.php';
@@ -96,4 +117,3 @@ function wcsd_log($message) {
         error_log($message);
     }
 }
-?>

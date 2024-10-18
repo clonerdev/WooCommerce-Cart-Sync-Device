@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cart Sync Device for WooCommerce\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-30 14:17+0000\n"
+"POT-Creation-Date: 2024-10-18 19:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,6 +16,10 @@ msgstr ""
 "X-Loco-Version: 2.6.11; wp-6.6.2\n"
 "X-Domain: cart-sync-device-for-woocommerce"
 
+#. Author of the plugin
+msgid "Ali Karimi | Nedaye Web"
+msgstr ""
+
 #. Page title
 #: includes/wcsd-admin-settings.php:14
 msgid "Cart Sync Device"
@@ -25,45 +29,66 @@ msgstr ""
 msgid "Cart Sync Device for WooCommerce"
 msgstr ""
 
-#: includes/wcsd-admin-settings.php:51
+#: includes/wcsd-admin-settings.php:60
 msgid ""
 "Configure webhook settings to receive real-time notifications of cart "
 "updates."
 msgstr ""
 
-#: includes/wcsd-admin-settings.php:54
+#: includes/wcsd-admin-settings.php:63
 msgid "Enable Webhook"
 msgstr ""
 
-#: includes/wcsd-admin-settings.php:57
+#: includes/wcsd-admin-settings.php:66
 msgid "Enable Webhook functionality"
 msgstr ""
 
-#: includes/wcsd-admin-settings.php:78
+#: includes/wcsd-admin-settings.php:87
 msgid "Enter authentication token for Webhook."
 msgstr ""
 
-#: includes/wcsd-admin-settings.php:71
+#: includes/wcsd-admin-settings.php:80
 msgid "Enter the Webhook Secret key."
 msgstr ""
 
-#: includes/wcsd-admin-settings.php:64
+#: includes/wcsd-admin-settings.php:73
 msgid "Enter the Webhook URL."
 msgstr ""
 
-#: includes/wcsd-admin-settings.php:94
+#: includes/wcsd-admin-settings.php:103
 msgid "GitHub"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://github.com/clonerdev/WooCommerce-Cart-Sync-Device"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://nedayeweb.ir"
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:52
+msgid ""
+"If you are using a caching plugin for your site and have enabled the \"Cache "
+"Logged-in Users\" setting, it may disrupt the functionality of this plugin. "
+"For example, in the LiteSpeed Cache plugin, you can find this setting under "
+"LiteSpeed Cache > Cache > Cache Settings > Cache Logged-in Users, which "
+"should be disabled."
 msgstr ""
 
 #: includes/wcsd-admin-settings.php:37
 msgid "Info"
 msgstr ""
 
-#: includes/wcsd-admin-settings.php:93
+#: includes/wcsd-admin-settings.php:102
 msgid "NedayeWEB"
 msgstr ""
 
-#: includes/wcsd-admin-settings.php:39 includes/wcsd-admin-settings.php:91
+#: cart-sync-device-for-woocommerce.php:97
+msgid "No cart data found"
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:39 includes/wcsd-admin-settings.php:100
 msgid "Support"
 msgstr ""
 
@@ -71,7 +96,7 @@ msgstr ""
 msgid "Synchronize the WooCommerce cart across devices."
 msgstr ""
 
-#: includes/wcsd-admin-settings.php:83
+#: includes/wcsd-admin-settings.php:92
 msgid "Test Webhook"
 msgstr ""
 
@@ -81,19 +106,27 @@ msgid ""
 "logged-in users."
 msgstr ""
 
-#: includes/wcsd-admin-settings.php:75
+#: cart-sync-device-for-woocommerce.php:100
+msgid "User not logged in"
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:51
+msgid "Warning:"
+msgstr ""
+
+#: includes/wcsd-admin-settings.php:84
 msgid "Webhook Authentication"
 msgstr ""
 
-#: includes/wcsd-admin-settings.php:68
+#: includes/wcsd-admin-settings.php:77
 msgid "Webhook Secret"
 msgstr ""
 
-#: includes/wcsd-admin-settings.php:50
+#: includes/wcsd-admin-settings.php:59
 msgid "Webhook Settings"
 msgstr ""
 
-#: includes/wcsd-admin-settings.php:61
+#: includes/wcsd-admin-settings.php:70
 msgid "Webhook URL"
 msgstr ""
 
@@ -108,8 +141,4 @@ msgstr ""
 
 #: includes/wcsd-admin-settings.php:28
 msgid "WooCommerce Cart Sync Device Settings"
-msgstr ""
-
-#. Author of the plugin
-msgid "Your Name"
 msgstr ""
