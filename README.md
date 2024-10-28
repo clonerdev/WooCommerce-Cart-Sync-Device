@@ -34,6 +34,17 @@ Webhooks are triggered when the cart is updated, allowing real-time synchronizat
 
 ## Changelog
 
+### 3.1.0
+- Improved file structure and organization.
+- Moved inline styles and scripts to external CSS and JS files.
+- Resolved issues with creating the custom table wp_wcsd_cart_data.
+- Fixed errors related to fetching cart data from the custom table.
+- Enhanced AJAX handlers for syncing cart data with better error handling.
+- Improved cart synchronization for item additions, removals, and quantity updates.
+- Updated webhook test functionality for secure communication.
+- Added extensive error logging for debugging purposes.
+- Updated translation strings for improved localization.
+
 ### 3.0.0
 
 - Synchronization with Litespeed cache

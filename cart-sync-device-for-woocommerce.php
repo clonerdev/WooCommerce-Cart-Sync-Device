@@ -3,7 +3,7 @@
  * Plugin Name: Cart Sync Device for WooCommerce
  * Plugin URI: https://github.com/clonerdev/WooCommerce-Cart-Sync-Device
  * Description: Synchronize the WooCommerce cart across devices.
- * Version: 3.0.0
+ * Version: 3.1.0
  * Author: Ali Karimi | Nedaye Web
  * Author URI: https://nedayeweb.ir
  * WC requires at least: 6.4
@@ -24,75 +24,110 @@ function wcsd_load_textdomain() {
 }
 add_action('plugins_loaded', 'wcsd_load_textdomain');
 
-// Enqueue scripts and styles for front-end
-function wcsd_enqueue_scripts() {
-    wp_register_script('wcsd-custom-js', plugin_dir_url(__FILE__) . 'assets/js/script.js', array('jquery'), '1.0.0', true); // اصلاح مسیر
-    wp_enqueue_script('wcsd-custom-js');
-
-    wp_register_style('wcsd-custom-css', plugin_dir_url(__FILE__) . 'assets/css/style.css', array(), '1.0.0'); // اصلاح مسیر
-    wp_enqueue_style('wcsd-custom-css');
-}
-add_action('wp_enqueue_scripts', 'wcsd_enqueue_scripts');
-
-// Enqueue admin scripts and styles
-function wcsd_enqueue_admin_scripts($hook_suffix) {
-    if (strpos($hook_suffix, 'wcsd') !== false) {
-        wp_register_script('wcsd-admin-js', plugin_dir_url(__FILE__) . 'assets/js/wcsd-admin.js', array('jquery'), '1.0.0', true); // اصلاح مسیر
-        wp_enqueue_script('wcsd-admin-js');
-
-        wp_register_style('wcsd-admin-css', plugin_dir_url(__FILE__) . 'assets/css/style.css', array(), '1.0.0'); // اصلاح مسیر
-        wp_enqueue_style('wcsd-admin-css');
-    }
-}
-add_action('admin_enqueue_scripts', 'wcsd_enqueue_admin_scripts');
-
 // Include necessary files
 require_once plugin_dir_path(__FILE__) . 'includes/wcsd-database.php';
-require_once plugin_dir_path(__FILE__) . 'includes/wcsd-functions.php';
-require_once plugin_dir_path(__FILE__) . 'includes/class-cart-sync.php';
-require_once plugin_dir_path(__FILE__) . 'includes/wcsd-cart-sync-handler.php';
-require_once plugin_dir_path(__FILE__) . 'includes/wcsd-admin-settings.php'; // Ensure settings file is included
+require_once plugin_dir_path(__FILE__) . 'includes/wcsd-cart-sync.php';
+require_once plugin_dir_path(__FILE__) . 'includes/wcsd-admin-settings.php';
 
 // Activate the plugin
 register_activation_hook(__FILE__, 'wcsd_create_plugin_custom_table');
 
 // Hook into WooCommerce actions
 add_action('woocommerce_add_to_cart', 'wcsd_sync_cart_on_add');
-add_action('wp_ajax_wcsd_sync_cart', 'wcsd_sync_cart');
-add_action('wp_ajax_nopriv_wcsd_sync_cart', 'wcsd_sync_cart');
+add_action('woocommerce_cart_item_removed', 'wcsd_sync_cart_on_remove', 10, 2);
+add_action('woocommerce_after_cart_item_quantity_update', 'wcsd_sync_cart_on_quantity_change', 10, 4);
 
 // Sync cart when an item is added
 function wcsd_sync_cart_on_add($cart_item_key) {
-    if (is_user_logged_in()) {
+    if (is_user_logged_in() && function_exists('WC')) {
         global $wpdb;
         $user_id = get_current_user_id();
         $cart_data = WC()->cart->get_cart();
-        $cart_json = json_encode($cart_data);
 
-        // Save cart to custom table
-        $table_name = $wpdb->prefix . 'wcsd_cart';
-        $wpdb->replace($table_name, [
+        // Save cart to custom table as serialized data
+        $table_name = $wpdb->prefix . 'wcsd_cart_data';
+        $result = $wpdb->replace($table_name, [
             'user_id' => $user_id,
-            'cart_data' => $cart_json,
+            'cart_data' => maybe_serialize($cart_data),
         ]);
+
+        // Log any database error
+        if ($result === false) {
+            wcsd_log("Failed to sync cart on add: " . $wpdb->last_error);
+        }
+    }
+}
+
+// Sync cart when an item is removed
+function wcsd_sync_cart_on_remove($cart_item_key, $cart) {
+    if (is_user_logged_in() && function_exists('WC')) {
+        global $wpdb;
+        $user_id = get_current_user_id();
+        $cart_data = WC()->cart->get_cart();
+
+        // Save updated cart to custom table
+        $table_name = $wpdb->prefix . 'wcsd_cart_data';
+        $result = $wpdb->replace($table_name, [
+            'user_id' => $user_id,
+            'cart_data' => maybe_serialize($cart_data),
+        ]);
+
+        // Log any database error
+        if ($result === false) {
+            wcsd_log("Failed to sync cart on remove: " . $wpdb->last_error);
+        }
+    }
+}
+
+// Sync cart when quantity is changed
+function wcsd_sync_cart_on_quantity_change($cart_item_key, $quantity, $old_quantity, $cart) {
+    if (is_user_logged_in() && function_exists('WC')) {
+        global $wpdb;
+        $user_id = get_current_user_id();
+        $cart_data = WC()->cart->get_cart();
+
+        // Save updated cart to custom table
+        $table_name = $wpdb->prefix . 'wcsd_cart_data';
+        $result = $wpdb->replace($table_name, [
+            'user_id' => $user_id,
+            'cart_data' => maybe_serialize($cart_data),
+        ]);
+
+        // Log any database error
+        if ($result === false) {
+            wcsd_log("Failed to sync cart on quantity change: " . $wpdb->last_error);
+        }
     }
 }
 
 // AJAX handler to synchronize cart
+add_action('wp_ajax_wcsd_sync_cart', 'wcsd_sync_cart');
+add_action('wp_ajax_nopriv_wcsd_sync_cart', 'wcsd_sync_cart');
+
 function wcsd_sync_cart() {
     if (is_user_logged_in()) {
         global $wpdb;
         $user_id = get_current_user_id();
-        $table_name = $wpdb->prefix . 'wcsd_cart';
+        $table_name = $wpdb->prefix . 'wcsd_cart_data';
         $cart_data = $wpdb->get_var($wpdb->prepare("SELECT cart_data FROM $table_name WHERE user_id = %d", $user_id));
 
         if ($cart_data) {
-            $cart_items = json_decode($cart_data, true);
-            WC()->cart->empty_cart(); // Clear current cart
-            foreach ($cart_items as $item) {
-                WC()->cart->add_to_cart($item['product_id'], $item['quantity']);
+            $cart_items = maybe_unserialize($cart_data);
+            if (is_array($cart_items)) {
+                WC()->cart->empty_cart();
+                foreach ($cart_items as $item) {
+                    WC()->cart->add_to_cart(
+                        $item['product_id'], 
+                        $item['quantity'], 
+                        $item['variation_id'] ?? 0, 
+                        $item['variation'] ?? [], 
+                        $item['cart_item_data'] ?? []
+                    );
+                }
+                wp_send_json_success();
+            } else {
+                wp_send_json_error(__('Cart data is not in expected format', 'cart-sync-device-for-woocommerce'));
             }
-            wp_send_json_success();
         } else {
             wp_send_json_error(__('No cart data found', 'cart-sync-device-for-woocommerce'));
         }
@@ -105,7 +140,6 @@ function wcsd_sync_cart() {
 add_action('init', 'wcsd_cache_control');
 function wcsd_cache_control() {
     if (is_user_logged_in()) {
-        // Prevent caching for AJAX responses
         header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
         header('Pragma: no-cache');
     }

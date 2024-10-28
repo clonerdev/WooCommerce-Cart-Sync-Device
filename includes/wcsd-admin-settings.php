@@ -45,7 +45,7 @@ function wcsd_settings_page() {
                 <p><?php esc_html_e('This plugin allows users to sync their shopping carts across devices for logged-in users.', 'cart-sync-device-for-woocommerce'); ?></p>
 
                 <!-- Warning about user cache -->
-                <div style="border: 1px solid red; border-radius: 12px; padding: 10px; margin-top: 10px;">
+                <div class="warning-box">
                     <div style="text-align: <?php echo is_rtl() ? 'right' : 'left'; ?>;">
                         <span style="color: red;">&#9733;</span>
                         <strong><?php esc_html_e('Warning:', 'cart-sync-device-for-woocommerce'); ?></strong>
@@ -119,76 +119,15 @@ function wcsd_register_settings() {
 }
 add_action('admin_init', 'wcsd_register_settings');
 
-// Enqueue admin scripts and styles (without redefining the function)
-function wcsd_enqueue_correct_admin_scripts($hook_suffix) {
+// Enqueue admin scripts and styles
+function wcsd_enqueue_admin_scripts($hook_suffix) {
     if (strpos($hook_suffix, 'wcsd') !== false) {
-        // Enqueue correct JavaScript and CSS files
-        wp_register_script('wcsd-admin-js', plugin_dir_url(__FILE__) . 'assets/js/wcsd-admin.js', array('jquery'), '1.0.0', true);
+        wp_register_script('wcsd-admin-js', plugin_dir_url(__FILE__) . '../assets/js/wcsd-admin.js', array('jquery'), '1.0.0', true);
         wp_enqueue_script('wcsd-admin-js');
 
-        wp_register_style('wcsd-admin-css', plugin_dir_url(__FILE__) . 'assets/css/style.css', array(), '1.0.0');
+        wp_register_style('wcsd-admin-css', plugin_dir_url(__FILE__) . '../assets/css/style.css', array(), '1.0.0');
         wp_enqueue_style('wcsd-admin-css');
-
-        // Add inline script for tab functionality
-        $inline_script = "
-            jQuery(document).ready(function($) {
-                $('.nav-tab').click(function(e) {
-                    e.preventDefault();
-                    $('.nav-tab').removeClass('nav-tab-active');
-                    $(this).addClass('nav-tab-active');
-                    $('.tab-content').removeClass('active').hide();
-                    $($(this).attr('href')).addClass('active').show();
-                });
-
-                // By default, show the first tab
-                $('.nav-tab-wrapper .nav-tab:first').addClass('nav-tab-active');
-                $('.tab-content:first').addClass('active').show();
-
-                $('#wcsd_enable_webhook').change(function() {
-                    if ($(this).is(':checked')) {
-                        $('.webhook-settings').show();
-                    } else {
-                        $('.webhook-settings').hide();
-                    }
-                }).change(); // Initial trigger to set visibility
-
-                $('#test-webhook').click(function() {
-                    $.post(ajaxurl, {
-                        action: 'test_webhook'
-                    }, function(response) {
-                        if (response.success) {
-                            alert('Webhook Test Successful: ' + response.data);
-                        } else {
-                            alert('Webhook Test Failed: ' + response.data);
-                        }
-                    });
-                });
-            });
-        ";
-        wp_add_inline_script('wcsd-admin-js', $inline_script);
-
-        // Add inline styles
-        $inline_style = "
-            .nav-tab-wrapper .nav-tab {
-                background-color: rgb(66,90,186);
-                color: white;
-            }
-            .nav-tab-active {
-                background-color: white !important;
-                color: black !important;
-                border-bottom: 1px solid white;
-            }
-            .tab-content {
-                padding: 20px;
-                border: 1px solid #ddd;
-                border-top: none;
-                display: none;
-            }
-            .tab-content.active {
-                display: block;
-            }
-        ";
-        wp_add_inline_style('wcsd-admin-css', $inline_style);
     }
 }
-add_action('admin_enqueue_scripts', 'wcsd_enqueue_correct_admin_scripts');
+
+add_action('admin_enqueue_scripts', 'wcsd_enqueue_admin_scripts');
